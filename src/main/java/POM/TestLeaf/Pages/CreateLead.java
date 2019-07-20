@@ -16,7 +16,7 @@ public class CreateLead {
 		
 		d.findElementById("username").sendKeys("demosalesmanager");
 		d.findElementById("password").sendKeys("crmsfa");
-		
+		d.findElementById("password").sendKeys("crmsfa");
 	}
 
 }
