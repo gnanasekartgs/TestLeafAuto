@@ -2,9 +2,10 @@ package POM.TestLeaf.Pages;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class EditLead {
+public class DuplicateLead {
 
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
@@ -20,13 +21,19 @@ public class EditLead {
 		d.findElementByXPath("//div[@for='crmsfa']//a").click();
 		d.findElementByXPath("//a[text()='Leads']").click();
 		d.findElementByLinkText("Find Leads").click();
-		d.findElementByXPath("//div[@class='x-tab-panel-bwrap']//div[2]//input").sendKeys("gnana");
+		d.findElementByXPath("//span[text()='Email']").click();
+		d.findElementByXPath("//input[@name='emailAddress']").sendKeys("gnana@gmsil.com");
 		d.findElementByXPath("//button[text()='Find Leads']").click();
 		Thread.sleep(5000);
-		d.findElementByXPath("(//div[@class='x-grid3-cell-inner x-grid3-col-firstName']//a)[1]").click();
+		WebElement firstname = d.findElementByXPath("(//div[@class='x-grid3-cell-inner x-grid3-col-firstName']//a)[1]");
+		String fname = firstname.getText();
+		System.out.println(fname);
 		
+		d.findElementByXPath("(//div[@class='x-grid3-cell-inner x-grid3-col-firstName']//a)[1]").click();
+		d.findElementByXPath("(//div[@class='frameSectionExtra']//a)[1]").click();
 		String title = d.getTitle();
-		if(title.equals("View Lead | opentaps CRM"))
+		
+		if(title.equals("Duplicate Lead | opentaps CRM"))
 		{
 			System.out.println("correct title");
 		}
@@ -35,16 +42,18 @@ public class EditLead {
 			System.out.println("wrong title");
 		}
 		
-		d.findElementByXPath("(//div[@class='frameSectionExtra'])[2]//a[3]").click();
-		d.findElementById("updateLeadForm_companyName").clear();
-		d.findElementById("updateLeadForm_companyName").sendKeys("ameexusa");
-		//d.findElementById("(//input[@name='submitButton'])[1]").click();
-		d.findElementByXPath("(//span[text()='Important Note']/following::input)[1]").click();
+		d.findElementByXPath("//input[@value='Create Lead']").click();
+		String dname = d.findElementById("viewLead_firstName_sp").getText();
+		System.out.println(dname);
 		
-		String text = d.findElementById("viewLead_companyName_sp").getText();
-		
-		System.out.println(text.replaceAll("[^a-zA-Z]", ""));
-		
+		if(fname.equalsIgnoreCase(dname))
+		{
+			System.out.println("duplicate name");
+		}
+		else
+		{
+			System.out.println("not duplicate name");
+		}
 		d.close();
 	}
 

@@ -76,7 +76,7 @@ public class CreateLead {
 		campaign.selectByValue("DEMO_MKTG_CAMP");
 		
 		d.findElementById("createLeadForm_primaryPhoneNumber").sendKeys("99999999");
-		d.findElementById("createLeadForm_primaryEmail").sendKeys("gnana@gmsil.com");
+		d.findElementById("createLeadForm_primaryEmail").sendKeys("gnana@gmail.com");
 		d.findElementByClassName("smallSubmit").click();	
 		
 		String fname = d.findElementByXPath("//span[text()='First name']/following::span[1]").getText();
