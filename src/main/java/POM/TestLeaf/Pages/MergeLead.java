@@ -4,8 +4,13 @@ import java.awt.Desktop.Action;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MergeLead
 {
@@ -56,9 +61,23 @@ public class MergeLead
 		Thread.sleep(5000);
 		d.findElementByXPath("//div[@class='x-grid3-cell-inner x-grid3-col-firstName']//a").click();
 		Thread.sleep(5000);
-		d.findElementByXPath("//a[text()='Merge']").click();
+		d.switchTo().window(windowHandle1);
+		d.findElementByClassName("buttonDangerous").click();
+		//d.findElementByXPath("//a[text()='Merge']").click();
+		
 		d.switchTo().alert().accept();
-		d.findElementByXPath("//a[text()='Find Leads']").click();
+		
+		if(d.getTitle().equals("View Lead | opentaps CRM"))
+		{
+			d.findElementByXPath("//a[text()='Find Leads']").click();
+		}
+		else
+		{
+			WebDriverWait wait = new WebDriverWait(d, 10);
+			WebElement until = wait.until((ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Find Leads']"))));
+			until.click();
+			
+		}
 		d.findElementByXPath("//label[text()='Lead ID:']/following::input[1]").sendKeys("10064");
 		d.findElementByXPath("//button[text()='Find Leads']").click();
 		
