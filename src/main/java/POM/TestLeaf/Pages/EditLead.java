@@ -37,7 +37,7 @@ public class EditLead {
 		
 		d.findElementByXPath("(//div[@class='frameSectionExtra'])[2]//a[3]").click();
 		d.findElementById("updateLeadForm_companyName").clear();
-		d.findElementById("updateLeadForm_companyName").sendKeys("ameexusa");
+		d.findElementById("updateLeadForm_companyName").sendKeys("allusa");
 		//d.findElementById("(//input[@name='submitButton'])[1]").click();
 		d.findElementByXPath("(//span[text()='Important Note']/following::input)[1]").click();
 		

@@ -23,7 +23,7 @@ public class CreateLead {
 		d.findElementByXPath("//div[@for='crmsfa']//a").click();
 		d.findElementByLinkText("Create Lead").click();
 		
-		d.findElementById("createLeadForm_companyName").sendKeys("Ameex");
+		d.findElementById("createLeadForm_companyName").sendKeys("all");
 	    d.findElementById("createLeadForm_firstName").sendKeys("gnana");
 		d.findElementById("createLeadForm_lastName").sendKeys("sekar");
 		d.findElementById("createLeadForm_firstNameLocal").sendKeys("gnanasekar");
