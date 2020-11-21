@@ -27,8 +27,8 @@ public class DeleteLead {
 		d.findElementByXPath("//a[text()='Leads']").click();
 		d.findElementByLinkText("Find Leads").click();
 		d.findElementByXPath("//span[text()='Phone']").click();
-		d.findElementByXPath("//input[@name='phoneAreaCode']").sendKeys("044");
-		d.findElementByXPath("//input[@name='phoneNumber']").sendKeys("99999999");
+	//	d.findElementByXPath("//input[@name='phoneAreaCode']").sendKeys("044");
+		d.findElementByXPath("//input[@name='phoneNumber']").sendKeys("222333");
 		d.findElementByXPath("//button[text()='Find Leads']").click();
 		Thread.sleep(2000);
 		WebElement id = d.findElementByXPath("(//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a)[1]");
@@ -37,7 +37,7 @@ public class DeleteLead {
 		d.findElementByXPath("(//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a)[1]").click();
 		d.findElementByClassName("subMenuButtonDangerous").click();
 		d.findElementByXPath("//a[text()='Find Leads']").click();
-		d.findElementByXPath("//label[text()='Lead ID:']/following::input[1]").sendKeys("10045");
+		d.findElementByXPath("//label[text()='Lead ID:']/following::input[1]").sendKeys(idno);
 		d.findElementByXPath("//button[text()='Find Leads']").click();
 		Thread.sleep(2000);
 		

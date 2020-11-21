@@ -1,38 +1,31 @@
 package POM.TestLeaf;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
+class AppTest
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+	WebDriver d;
+	@BeforeMethod
+	public void setup()
+	{
+		WebDriverManager.chromedriver().driverVersion("83.0.4103.39").setup();
+		//WebDriverManager.firefoxdriver().setup();
+		//System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+		d = new ChromeDriver();
+	}
+	@Test
+	public void launch()
+	{
+		d.get("https://www.google.com");
+		System.out.println(d.getTitle());
+	}
+		@AfterMethod
+		public void finish()
+		{
+		d.quit();
+	}
 }

@@ -85,8 +85,7 @@ public class CreateLead {
 		//String firstname1 = fname.toString();
 		if(fname.equalsIgnoreCase("gnana"))
 		{
-			System.out.println("first name is verified");
-			
+			System.out.println("first name is verified");	
 		}
 		else
 		{
